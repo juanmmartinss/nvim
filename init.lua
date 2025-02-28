@@ -888,18 +888,6 @@ require('lazy').setup({
     end,
   },
 
-{
-  'ellisonleao/gruvbox.nvim',
-  priority = 1000,
-  config = function()
-    require("gruvbox").setup({
-      contrast = "hard", -- Opções: "soft", "medium", "hard"
-      transparent_mode = false,
-    })
-    vim.cmd("colorscheme gruvbox")
-  end,
-},
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 

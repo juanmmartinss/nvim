@@ -86,6 +86,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 --
 require 'keymap'
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 

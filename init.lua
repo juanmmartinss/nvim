@@ -90,6 +90,9 @@ require 'keymap'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Ativar ícones do Powerline para o Airline
+vim.g.airline_powerline_fonts = 1
+
 vim.opt.tags = './tags;,tags;'
 
 -- Set <space> as the leader key
@@ -741,7 +744,7 @@ require('lazy').setup({
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').format { async = true, lsp_format = false }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -758,7 +761,7 @@ require('lazy').setup({
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
         else
-          lsp_format_opt = 'fallback'
+          lsp_format_opt = 'never'
         end
         return {
           timeout_ms = 500,

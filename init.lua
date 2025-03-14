@@ -93,6 +93,10 @@ vim.g.loaded_netrwPlugin = 1
 -- Ativar ícones do Powerline para o Airline
 vim.g.airline_powerline_fonts = 1
 
+
+vim.diagnostic.disable() -- Desativa por padrão comentarios "inline diagnostics"
+
+
 vim.opt.tags = './tags;,tags;'
 
 -- Set <space> as the leader key

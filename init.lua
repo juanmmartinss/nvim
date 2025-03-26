@@ -96,6 +96,8 @@ vim.g.airline_powerline_fonts = 1
 
 vim.diagnostic.disable() -- Desativa por padrão comentarios "inline diagnostics"
 
+vim.opt.relativenumber = true
+vim.opt.number = true  -- Isso mantém a linha atual com numeração absoluta
 
 vim.opt.tags = './tags;,tags;'
 

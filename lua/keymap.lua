@@ -8,3 +8,6 @@ map('v', '<C-s>', '<Esc>:w<CR>', opts)
 
 -- Fechar janela com Ctrl + Q
 map('n', '<C-q>', ':q<CR>', opts)
+
+-- Apagar linha sem salvar no registro
+map('n', 'dd', [["_dd]], opts)

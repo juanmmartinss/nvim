@@ -101,6 +101,11 @@ vim.opt.number = true  -- Isso mantém a linha atual com numeração absoluta
 
 vim.opt.tags = './tags;,tags;'
 
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)

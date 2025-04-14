@@ -11,3 +11,5 @@ map('n', '<C-q>', ':q<CR>', opts)
 
 -- Apagar linha sem salvar no registro
 map('n', 'dd', [["_dd]], opts)
+-- Modo visual: também redirecionar pro registro nulo
+map('v', 'd', '"_d', opts)

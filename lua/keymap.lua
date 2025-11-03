@@ -30,3 +30,7 @@ map("v", "<S-Tab>", "<gv")
 -- Visual mode line movement
 map("v", "J", ":m '>+1'<CR>gv=gv")
 map("v", "K", ":m '<-2'<CR>gv=gv")
+
+-- Substituir a palavra em que o cursor está
+map('n', 's', 's')
+map('x', 's', 's')

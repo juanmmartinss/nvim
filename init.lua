@@ -929,7 +929,13 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup({
+        mappings = {
+          add = '<leader>s',     -- Usar <leader>s para adicionar surround
+          delete = '<leader>sd', -- Exemplo: <leader>sd para deletar surround
+          replace = '<leader>sr' -- Exemplo: <leader>sr para trocar surround
+        }
+      })
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

@@ -10,8 +10,8 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "Abrir chat do Copilot" })
-    vim.keymap.set("v", "<leader>ce", ":CopilotChatExplain<CR>", { desc = "Explicar código selecionado" })
-    vim.keymap.set("v", "<leader>cf", ":CopilotChatFix<CR>", { desc = "Sugerir correção no código selecionado" })
+    vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { desc = "Copilot Chat" })
+    vim.keymap.set("v", "<leader>ce", ":CopilotChatExplain<CR>", { desc = "Explain selected code" })
+    vim.keymap.set("v", "<leader>cf", ":CopilotChatFix<CR>", { desc = "Suggest a correction to the selected code" })
   end,
 }

@@ -94,7 +94,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.airline_powerline_fonts = 1
 
 
-vim.diagnostic.disable() -- Desativa por padrão comentarios "inline diagnostics"
+-- vim.diagnostic.disable() -- Desativa por padrão comentarios "inline diagnostics"
+vim.diagnostic.enable(false)
 
 vim.opt.relativenumber = true
 vim.opt.number = true  -- Isso mantém a linha atual com numeração absoluta
@@ -488,6 +489,7 @@ require('lazy').setup({
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    enabled = false,
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.

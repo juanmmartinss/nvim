@@ -29,3 +29,8 @@ opt.splitbelow = true
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.inccommand = 'split'
+
+vim.opt.foldcolumn = '0' 
+vim.opt.foldlevel = 99 
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true

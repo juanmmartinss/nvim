@@ -9,12 +9,10 @@ return {
         'williamboman/mason-lspconfig.nvim',
         opts = {
           ensure_installed = {
-            'ts_ls',
+            'ts_ls',       -- 👈 atualizado
             'solargraph',
             'html',
-            'lua_ls',
-	    'clangd',
-            'pyright',
+            'lua-language-server',
           }
         }
       },
@@ -22,36 +20,24 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       'hrsh7th/cmp-nvim-lsp',
     },
+
     config = function()
-      local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      require('mason').setup()
-
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'clangd',      -- C
-          'solargraph',  -- Ruby
-          'pyright',     -- Python
-          'lua_ls',      -- Lua (para os arquivos de config)
-        }
-      })
-
       local servers = {
-        'tsserver',
+        'ts_ls',   -- 👈 atualizado
         'html',
-        'lua_ls',
-        'clangd',
-        'pyright',
+        'lua-language-server',
       }
 
-      for _, server_name in ipairs(servers) do
-        lspconfig[server_name].setup({
-          capabilities = capabilities
+      for _, server in ipairs(servers) do
+        vim.lsp.config(server, {
+          capabilities = capabilities,
         })
+        vim.lsp.enable(server)
       end
 
-      lspconfig.solargraph.setup({
+      vim.lsp.config('solargraph', {
         capabilities = capabilities,
         settings = {
           solargraph = {
@@ -61,11 +47,13 @@ return {
           },
         },
       })
+      vim.lsp.enable('solargraph')
 
+      -- keymaps
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
-      vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = 'LSP Goto Definition' })
-      vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { desc = 'LSP Goto References' })
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
+      vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
+      vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { desc = 'References' })
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
     end,
   },
 }

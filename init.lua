@@ -1,3 +1,5 @@
+vim.g.lspconfig_suppress_deprecation_warning = true
+
 pcall(require, "set")
 pcall(require, "keymap")
 pcall(require, "autocmds")

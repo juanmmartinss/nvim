@@ -9,10 +9,12 @@ return {
         'williamboman/mason-lspconfig.nvim',
         opts = {
           ensure_installed = {
-            'tsserver',
+            'ts_ls',
             'solargraph',
             'html',
             'lua_ls',
+	    'clangd',
+            'pyright',
           }
         }
       },
@@ -21,13 +23,26 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-      local lspconfig = vim.lsp.config
+      local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      require('mason').setup()
+
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          'clangd',      -- C
+          'solargraph',  -- Ruby
+          'pyright',     -- Python
+          'lua_ls',      -- Lua (para os arquivos de config)
+        }
+      })
 
       local servers = {
         'tsserver',
         'html',
         'lua_ls',
+        'clangd',
+        'pyright',
       }
 
       for _, server_name in ipairs(servers) do

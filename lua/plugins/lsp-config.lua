@@ -4,19 +4,18 @@ return {
     event = 'VeryLazy',
     dependencies = {
       'williamboman/mason.nvim',
-
       {
         'williamboman/mason-lspconfig.nvim',
         opts = {
           ensure_installed = {
-            'ts_ls',       -- 👈 atualizado
+            'ts_ls',
             'solargraph',
             'html',
-            'lua-language-server',
+            'lua_ls',  -- 👈 Nome corrigido
+            'clangd',  -- 👈 Adicionado para o seu C
           }
         }
       },
-
       { 'j-hui/fidget.nvim', opts = {} },
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -25,9 +24,10 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local servers = {
-        'ts_ls',   -- 👈 atualizado
+        'ts_ls',
         'html',
-        'lua-language-server',
+        'lua_ls', -- 👈 Nome corrigido
+        'clangd', -- 👈 Adicionado para o seu C
       }
 
       for _, server in ipairs(servers) do
@@ -49,10 +49,10 @@ return {
       })
       vim.lsp.enable('solargraph')
 
-      -- keymaps
+      -- KEYMAPS CORRIGIDOS PARA USAR O TELESCOPE (A JANELINHA)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
-      vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
-      vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { desc = 'References' })
+      vim.keymap.set('n', '<leader>gd', require('telescope.builtin').lsp_definitions, { desc = 'Goto Definition (Telescope)' })
+      vim.keymap.set('n', '<leader>gr', require('telescope.builtin').lsp_references, { desc = 'References (Telescope)' })
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
     end,
   },
